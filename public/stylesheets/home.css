@@ -1,0 +1,97 @@
+body {
+    margin:0;
+    padding:0;
+}
+
+.jumbotron img{
+    width:100%;
+    height:200px;
+    margin-bottom:20px;
+}
+
+.content{
+    background:#f5f6f6;
+    min-height: 600px;
+}
+
+.list-header{
+    text-align: center;
+    padding:10px 0;
+    color:rgb(110, 110, 110);
+    border:1px solid #eee;
+    border-bottom: none;
+}
+.bg-danger{
+    color:#bbb;
+}
+
+.bg-fear {
+    background: palevioletred;
+    color:#eee;
+}
+
+.post-list{
+    margin:0;
+    padding:10px 15px;
+    list-style:none;
+    border:1px solid #eee;
+    margin-bottom:10px;
+}
+
+.life-box{
+    background:#fff;
+    padding:10px 5px;
+    margin-left:17px;
+}
+
+.box-burn{
+    background: lightpink;
+}
+
+@media screen and (min-width: 768px){
+    .container .jumbotron, .container-fluid .jumbotron {
+        padding:30px;
+    }
+    .container .jumbotron, .container-fluid .jumbotron {
+        border-radius: 2px;
+    }
+    .jumbotron {
+        margin-top: 30px;
+    }
+}
+
+ul.post-list li span{
+    color:rgb(170, 170, 170);
+    margin-right:10px;
+    font-size:16px;
+}
+
+ul.post-list li a{
+    font-size:18px;
+}
+
+ul.post-list li{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    width:100%;
+}
+
+
+.grid-info{
+    margin-top:16px;
+}
+
+.footer{
+    background:rgb(248, 248, 248);
+    text-align:center;
+    color:#777;
+    font-size:18px;
+    padding:8px 0;
+    margin-top:30px;
+    border-top:1px solid #e7e7e7;
+}
+.container-fluid{
+    padding:0;
+
+}

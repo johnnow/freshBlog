@@ -1,0 +1,31 @@
+<% include header.ejs %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <ol class="breadcrumb">
+                    <li><a href="#">文章</a></li>
+                    <li><a href="#"><%= post.tags[0]%></a></li>
+                    <li class="active"><%= post.title%></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <h1><%= post.title%></h1>
+                <div class="post-info">
+                    @<%= post.author%> <%= post.updateDate%>
+                    <br/>
+                    允许转载，但必须标明文章作者及出处
+                </div>
+                <p class="post-content">
+                    <%- post.content%>
+                </p>
+            </div>
+        </div>
+    </div>
+<script src="/public/javascripts/prism.js"></script>
+<% include footer.ejs %>

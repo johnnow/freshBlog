@@ -1,0 +1,11 @@
+<% include header.ejs %>
+
+<div class="container">
+    <form action="/users/login" method="post">
+        <input type="text" name="username" placeholder="username" />
+        <input type="password" name="password" placeholder="passwod"/>
+        <input type="submit" value="login" />
+    </form>
+</div>
+
+<% include footer.ejs %>  

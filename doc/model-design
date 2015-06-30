@@ -1,0 +1,39 @@
+1、文章对象
+
+Post = {
+    title:"文章标题",
+    author:"作者",
+    updateDate:"yy-MM-dd hh-mm-ss", // 更新时间
+    super:"j-book", // 上一级结构,用于获取 上一篇 和 下一篇
+    tags:["javascript","util"],// 标签
+    content:"内容",
+    pv:0,//阅读数
+};
+
+2、视频对象
+Video = {
+    title:"视频标题",
+    super:"v-book", // 上一级结构，用于获取上一部，下一部
+    pv:0,//观看数
+    url:""//优酷地址
+};
+
+3、用户对象
+User = {
+    username:"uname",
+    password:"pwd",
+    role:"root"
+};
+
+4、集合对象
+Super = {
+    code:"", // 集合code
+    type:"video/post" // 集合类型
+}
+
+5、健身单元
+Body = {
+    fatContent:0.15, // 单位100
+    weight:50,// 单位kg
+    size:31 // 上臂维度
+}

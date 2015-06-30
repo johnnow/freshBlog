@@ -1,0 +1,13 @@
+<% include header.ejs %>
+
+      <div class="container">
+          <h1>文章列表</h1>
+          <ul class="post-list">
+              <% posts.forEach(function(post,index){ %>
+              <li><span><%=post.updateDate%></span><a href="/post/<%=post._id%>"><%=post.title%></a></li>
+              <% }); %>
+          </ul>
+      </div>
+
+
+<% include footer.ejs %>

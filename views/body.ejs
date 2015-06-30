@@ -1,0 +1,304 @@
+<% include header.ejs %>
+
+
+
+    <div class="container">
+        <h1>整体图表</h1>
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+            <canvas id="allData" width="600" height="250">
+              [No canvas support]
+            </canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>单项列表</h1>
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10">
+              <% bodies.forEach(function(body,index) { %>
+              <div class="col-xs-6 col-md-3">
+                  <canvas id="draw<%=index%>" class="smallDraw">
+                      [No canvas support]
+                  </canvas>
+                  <div class="caption">
+                      <p>体脂含量：<span class="fc"><%=body.fatContent%></span></p>
+                      <p>体重<span class="w"><%=body.weight%></span></p>
+                      <p>基础代谢<span class="bm"><%=body.basalMeta%></span></p>
+                  </div>
+              </div>
+              <% }); %>
+          </div>
+        </div>
+    </div>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/public/javascripts/draw/RGraph.common.core.js"></script>
+<script src="/public/javascripts/draw/RGraph.common.dynamic.js"></script>
+<script src="/public/javascripts/draw/RGraph.common.key.js"></script>
+<script src="/public/javascripts/draw/RGraph.common.tooltips.js"></script>
+<script src="/public/javascripts/draw/RGraph.drawing.yaxis.js"></script>
+<script src="/public/javascripts/draw/RGraph.line.js"></script>
+<script src="/public/javascripts/draw/RGraph.bar.js"></script>
+
+<script>
+    $(document).ready(function ()
+    {
+    var colors = ['Gradient(#f92672:#f92672)',
+        'Gradient(#e6db74:#e6db74)',
+        'Gradient(#66d9ef:#66d9ef)'];
+
+    var dateArr = [];
+    var weights = [];
+    var fatContents = [];
+    var basalMetas = [];
+
+    // 循环绘画单个
+    <% bodies.forEach(function(body,index) { %>
+    dateArr.push("<%=body.updateDate%>");
+    weights.push(parseInt("<%=body.weight%>"));
+    fatContents.push(parseInt("<%=body.fatContent%>"));
+    basalMetas.push(parseInt("<%=body.basalMeta%>"));
+    // 体脂
+    var bar1 = new RGraph.Bar({
+        id: 'draw<%=index%>',
+        data: [[parseInt("<%=body.fatContent%>"),0,0]],
+        options: {
+            strokestyle: 'rgba(0,0,0,0)',
+            shadow: false,
+            noaxes: true,
+            ylabels: false,
+            gutter: {
+                left: 0
+            },
+            colors: colors,
+            background: {
+                grid: {
+                    autofit: {
+                        numvlines: 3
+                    }
+                }
+            },
+            hmargin: {
+                self: 25,
+                grouped: 3
+            },
+            shadow: {
+                color: '#666',
+                offsetx: 2,
+                offsety: 2,
+                blur: 2
+            },
+            'text.size': 14
+        }
+    }).draw()
+
+    // 体重
+    var bar2 = new RGraph.Bar({
+        id: 'draw<%=index%>',
+        data: [[0,parseInt("<%=body.weight%>"),0]],
+        options: {
+            strokestyle: 'rgba(0,0,0,0)',
+            shadow: false,
+            noaxes: true,
+            ylabels: false,
+            gutter: {
+                left: 0
+            },
+            colors: colors,
+            background: {
+                grid: false
+            },
+            hmargin: {
+                self: 25,
+                grouped: 3
+            },
+            shadow: {
+                color: '#666',
+                offsetx: 2,
+                offsety: 2,
+                blur: 2
+            },
+            ymax: 80,
+            'text.size': 14
+        }
+    }).draw()
+
+    // 基础代谢
+    var bar3 = new RGraph.Bar({
+        id: 'draw<%=index%>',
+        data: [[0,0,parseInt("<%=body.basalMeta%>")]],
+        options: {
+            strokestyle: 'rgba(0,0,0,0)',
+            labels: ['<%=body.updateDate%>'],
+            shadow: false,
+            noyaxis: true,
+            ylabels: false,
+            gutter: {
+                left: 0
+            },
+            colors: colors,
+            background: {
+                grid: false
+            },
+            hmargin: {
+                self: 25,
+                grouped: 3
+            },
+            shadow: {
+                color: '#666',
+                offsetx: 2,
+                offsety: 2,
+                blur: 2
+            },
+            ymax: 2000,
+            'text.size': 14
+        }
+    }).draw()
+    <% }); %>
+
+
+        // 绘制整体
+        var gutterLeft = 200;
+        var gutterRight = 40;
+        var gutterTop   = 25;
+
+        /**
+         * This draws the extra axes. It's run whenever the line3 object is drawn
+         */
+        yaxis1 = new RGraph.Drawing.YAxis({
+            id: 'allData',
+            x: 200,
+            options: {
+                colors: '#75715e',
+                text: {
+                    color: '#75715e'
+                },
+                max: 80,
+                title: '体重'
+            }
+        }).draw();
+
+        yaxis2 = new RGraph.Drawing.YAxis({
+            id: 'allData',
+            x: 125,
+            options: {
+                colors: '#6eca97',
+                text: {
+                    color: '#6eca97'
+                },
+                max: 5000,
+                title: '基础代谢'
+            }
+        }).draw();
+
+        yaxis3 = new RGraph.Drawing.YAxis({
+            id: 'allData',
+            x: 50,
+            options: {
+                colors: '#ae81ff',
+                text: {
+                    color: '#ae81ff'
+                },
+                max: 100,
+                title: '体脂'
+            }
+        }).draw();
+
+
+
+        // 体重
+        var line1 = new RGraph.Line({
+            id: 'allData',
+            data: weights,
+            options: {
+                ymax: 80,
+                hmargin: 5,
+                gutter: {
+                    right: gutterRight,
+                    left: gutterLeft,
+                    top: gutterTop
+                },
+                labels: dateArr,
+                tooltips: dateArr,
+                colors: ['#75715e', '#6eca97', '#ae81ff'],
+                key: {
+                    self: ['体重', '基础代谢', '体脂'],
+                    position: {
+                        self: 'gutter',
+                        gutter: {
+                            boxed: false
+                        },
+                        x: 275
+                    }
+                },
+                noaxes: true,
+                ylabels: false,
+                shadow: false
+            }
+        }).draw();
+
+        // 基础代谢
+        var line2 = new RGraph.Line({
+            id: 'allData',
+            data: basalMetas,
+            options: {
+                ymax: 5000,
+                background: {
+                    grid: false
+                },
+                colors: ['#6eca97'],
+                hmargin: 5,
+                gutter: {
+                    right: gutterRight,
+                    left: gutterLeft,
+                    top: gutterTop
+                },
+                tooltips: dateArr,
+                noaxes: true,
+                ylabels: false,
+                shadow: false
+            }
+        }).draw()
+
+        // 体脂
+        var line3 = new RGraph.Line({
+            id: 'allData',
+            data: fatContents,
+            options: {
+                ymax: 100,
+                background: {
+                    grid: false
+                },
+                ylabels: false,
+                colors: ['#ae81ff'],
+                hmargin: 5,
+                gutter: {
+                    right: gutterRight,
+                    left: gutterLeft,
+                    top: gutterTop
+                },
+                tooltips: dateArr,
+                noaxes: true,
+                shadow: false
+            }
+        }).draw();
+
+        // 描绘动画
+        function selectAnimation(effect)
+        {
+            var select = document.getElementById('allData');
+
+            select.className = '';
+            select.className = 'animated ' + effect;
+        }
+
+        // 星期一到星期天
+        var animeArr = ['wiggle','bounce','shake','swing','pulse','fadeInLeft'];
+        selectAnimation(animeArr[(new Date().getDay() - 1)]);
+
+    });
+</script>
+
+
+<% include footer.ejs %>

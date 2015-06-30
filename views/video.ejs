@@ -1,0 +1,28 @@
+<% include header.ejs %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <ol class="breadcrumb">
+                    <li><a href="#">视频</a></li>
+                    <li class="active"><%= video.title%></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <h1><%= video.title%></h1>
+                <div class="post-info">
+                    @<%= video.author%> <%= video.updateDate%>
+                    <br/>
+                </div>
+                <p class="post-content">
+                    <embed src="<%=video.url%>" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+                </p>
+            </div>
+        </div>
+    </div>
+<% include footer.ejs %>
