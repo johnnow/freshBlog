@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
       console.log("首页文章找寻错误");
     }
 
-    var homeSets = ["css","javascript","html","fear","tool","test"];
+    var homeSets = ["css","javascript","html","fear","util","test"];
     res.render('index',{title:"首页",posts:seperatePosts(posts,homeSets)});
   });
 });
