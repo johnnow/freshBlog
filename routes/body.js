@@ -11,8 +11,7 @@ router.get('/', function(req, res, next){
     }
 
     var drawData = getDrawData(bodies);
-
-    res.render("body",{title:"身体数据列表页面",drawData:drawData,bodies:bodies,bodyStr:bodyStr});
+    res.render("body",{title:"身体数据列表页面",drawData:drawData,bodies:bodies});
   });
 });
 

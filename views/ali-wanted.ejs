@@ -2,73 +2,32 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-offset-1 col-md-10">
+        <div class="col-md-10">
             <ol class="breadcrumb">
-                <li><a href="#">阿里Wanted</a></li>
-                <li class="active">#1 Dream Catcher</li>
+                <li class="active">阿里Wanted</li>
+                <li class="active">无法抑制我内心的狂热，对未来的执着</li>
             </ol>
         </div>
     </div>
 </div>
 
 <div class="container">
+    <h1>文章列表</h1>
     <div class="row">
         <div class="col-md-offset-1 col-md-10">
+            <% posts.forEach(function(post,index){ %>
             <div class="col-xs-6 col-md-3">
-                <a href="#" class="sharpThumb">
-                    #1
+                <a href="/post/<%=post._id%>" class="sharpThumb">
+                    #<%=index + 1%>
                 </a>
                 <div class="caption">
-                    <h3>Dream Catcher</h3>
+                    <h3><%=post.title%></h3>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="sharpThumb">
-                    #1
-                </a>
-                <div class="caption">
-                    <h3>Dream Catcher</h3>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="sharpThumb">
-                    #1
-                </a>
-                <div class="caption">
-                    <h3>Dream Catcher</h3>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="sharpThumb">
-                    #1
-                </a>
-                <div class="caption">
-                    <h3>Dream Catcher</h3>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="sharpThumb">
-                    #1
-                </a>
-                <div class="caption">
-                    <h3>Dream Catcher</h3>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="sharpThumb">
-                    #1
-                </a>
-                <div class="caption">
-                    <h3>Dream Catcher</h3>
-                </div>
-            </div>
-
+            <% }); %>
         </div>
-
-
     </div>
-    </div>
-
 </div>
+
 
 <% include footer.ejs %>

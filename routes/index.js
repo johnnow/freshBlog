@@ -1,5 +1,6 @@
 var express = require('express');
 var Post = require('../model/post');
+var formidable = require('formidable');
 var router = express.Router();
 
 /* 首页 */
@@ -12,7 +13,6 @@ router.get('/', function(req, res, next) {
     var homeSets = ["css","javascript","html","fear","tool","test"];
     res.render('index',{title:"首页",posts:seperatePosts(posts,homeSets)});
   });
-
 });
 
 function seperatePosts(arr,keySets){

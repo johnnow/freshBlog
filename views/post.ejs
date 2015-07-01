@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-md-offset-1 col-md-10">
                 <ol class="breadcrumb">
-                    <li><a href="#">文章</a></li>
-                    <li><a href="#"><%= post.tags[0]%></a></li>
+                    <li><a href="/list">文章</a></li>
+                    <li><a href="/list/<%= post.tags[0]%>"><%= post.tags[0]%></a></li>
                     <li class="active"><%= post.title%></li>
                 </ol>
             </div>

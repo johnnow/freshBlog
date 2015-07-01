@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+<div class="content">
+    <h1>高亮代码</h1>
+</div>
+<textarea id="codeInput" style="width:95%;height:250px">
+</textarea>
+<button onclick="getIm()">a</button>
+<!--页面中一定要引入internal.js为了能直接使用当前打开dialog的实例变量-->
+<!--internal.js默认是放到dialogs目录下的-->
+<script type="text/javascript" src="internal.js"></script>
+<script>
+    function getIm(){
+        console.log(document.getElementById("codeInput").value);
+    }
+    //可以直接使用以下全局变量
+    //当前打开dialog的实例变量
+    //alert('editor: '+editor);
+    //一些常用工具
+    //alert('domUtils: '+domUtils);
+    //alert('utils: '+utils);
+    //alert('browser: '+browser);
+    dialog.codeInput = document.getElementById("codeInput");
+    //var codeInput = document.getElementById("codeInput").innerHTML;
+    //console.log(codeInput);
+
+</script>
+</body>
+</html>
