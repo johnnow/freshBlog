@@ -9,7 +9,10 @@ h1 {
 .post-content {
     margin-top:20px;
     color:rgb(85, 85, 85);
-    font-size:1.4em;
+    word-wrap: break-word;
+}
+.post-content p {
+    font-size:1.4em !important;
 }
 
 .footer{

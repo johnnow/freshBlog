@@ -22,7 +22,18 @@ UE.registerUI('dialog',function(editor,uiName){
                 onclick:function () {
                     console.log(dialog.codeInput.value);
                     var codeInput = dialog.codeInput.value;
-                    var inserCode = "<pre><code class='language-javascript'>"+codeInput+"</code></pre>";
+                    var codeOutput = "";
+                    for(var i = 0,ln = codeInput.length; i< ln; i++){
+                        console.log(codeInput[i]);
+                        if(codeInput[i]=='<'){
+                            codeOutput += "&lt;";
+                        }else if(codeInput[i]=='>'){
+                            codeOutput += "&gt;";
+                        }else{
+                            codeOutput += codeInput[i];
+                        }
+                    }
+                    var inserCode = "<pre><code class='language-javascript'>"+codeOutput+"</code></pre>";
                     console.log(inserCode);
                     dialog.editor.execCommand('insertHtml', inserCode);
                     dialog.close(true);

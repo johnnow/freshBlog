@@ -102,7 +102,7 @@ ul.post-list li{
     min-height: 100%;
     height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
     height: 100%;
-    margin: 0 auto -42px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto -72px; /* the bottom margin is the negative value of the footer's height */
 }
 
 .container-fluid{
