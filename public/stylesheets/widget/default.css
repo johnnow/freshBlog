@@ -70,3 +70,7 @@ code::selection {
     border-radius:5px;
     min-height:230px;
 }
+
+.rx{
+    position: absolute;
+}
