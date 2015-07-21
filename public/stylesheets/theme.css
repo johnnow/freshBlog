@@ -5,6 +5,7 @@
  * @author Lea Verou
  */
 
+
 code[class*="language-"],
 pre[class*="language-"] {
     color: #6eca97;
@@ -25,6 +26,8 @@ pre[class*="language-"] {
     -ms-hyphens: none;
     hyphens: none;
 }
+
+
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
@@ -126,6 +129,7 @@ pre[class*="language-"] {
 .token.bold {
     font-weight: bold;
 }
+
 .token.italic {
     font-style: italic;
 }
@@ -134,3 +138,18 @@ pre[class*="language-"] {
     cursor: help;
 }
 
+pre[class*="language-html"]{
+    background:#f6f6f6;
+    border: 1px solid rgba(0,0,0,.15);
+}
+
+code[class*="language-html"]{
+    color:rgb(85, 85, 85);
+    font-weight: bold;
+}
+
+pre::selection,
+code::selection {
+    background:#6eca97;
+    color:#fff;
+}

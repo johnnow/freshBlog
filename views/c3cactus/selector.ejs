@@ -1,0 +1,37 @@
+<% include widgetHead.ejs %>
+<div class="container">
+    <ul class="sub-nav">
+        <li><a href="selector" class="nav-btn">选择器</a></li>
+        <li><a href="threeD" class="nav-btn">3d</a></li>
+        <li><a href="animation" class="nav-btn">动画</a></li>
+        <div class="clearfix"></div>
+    </ul>
+
+    <!-- 目标伪类-->
+    <% widgets.forEach(function(widget,index){ %>
+    <div class="eg">
+        <h3 class="eg-title"><%=widget.title%></h3>
+
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                    <div class="div-show" id="div-show<%=index%>"></div>
+                    <script>
+                        var hstr = "<%- widget.divRaw %>";
+                        document.getElementById("div-show<%=index%>").insertAdjacentHTML("afterBegin",hstr);
+
+                        var cstr = "<%- widget.cssRaw%>";
+                        console.log(cstr);
+                        document.getElementById("realCss").insertAdjacentHTML("afterBegin",cstr);
+                    </script>
+                    <%- widget.divCode %>
+            </div>
+            <div class="col-md-5 ">
+                    <%- widget.cssCode %>
+            </div>
+        </div>
+    </div>
+    <% }); %>
+</div>
+
+<script src="/public/javascripts/prism.js"></script>
+<% include widgetFooter.ejs %>

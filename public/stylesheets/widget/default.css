@@ -1,0 +1,72 @@
+body{
+    margin:0;
+    padding:60px 0 0 ;
+    background: url(/public/images/widget/stardust.png) center;
+}
+
+/** 子标题**/
+.sub-nav{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+.sub-nav li{
+    float:left;
+}
+.sub-nav li a {
+    padding:12px 0;
+    margin-right:24px;
+    display: block;
+    text-decoration: none;
+    color:#F0F0EE;
+    font-size:20px;
+    border-bottom:3px solid transparent;
+}
+
+.sub-nav li a.current {
+    color:rgb(75,192,190);
+}
+
+.sub-nav li a:visited,
+.sub-nav li a:hover{
+    border-bottom:3px solid #F0F0EE;
+    transition: opacity .3s linear;
+}
+.sub-nav li a:active{
+
+}
+
+/** 展示**/
+.eg{
+    width:100%;
+    margin:20px auto;
+}
+.eg .effect{
+    background: #fff;
+    min-height: 242px;
+    margin-right:5%;
+    border-radius:3px;
+    /*box-shadow: 5px 5px 5px 1px rgb(95,102,140);*/
+    box-shadow: 5px 5px 5px 1px rgb(75,172,200);
+    margin-top:13px;
+
+}
+.eg .desc{
+    background: #3f3f3f;
+    border-radius: 4px;
+}
+.eg-title{
+    color:rgb(75,192,190);
+}
+
+code::selection {
+    color:#fff;
+}
+
+.div-show{
+    background:#fefefe;
+    color:rgb(86,86,86);
+    padding:15px;
+    border-radius:5px;
+    min-height:230px;
+}

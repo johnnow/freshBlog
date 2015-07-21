@@ -20,7 +20,8 @@ UE.registerUI('dialog',function(editor,uiName){
                 className:'edui-okbutton',
                 label:'确定',
                 onclick:function () {
-                    console.log(dialog.codeInput.value);
+                    // 获取代码类型
+                    var typeInput = dialog.typeInput.value;
                     var codeInput = dialog.codeInput.value;
                     var codeOutput = "";
                     for(var i = 0,ln = codeInput.length; i< ln; i++){
@@ -33,8 +34,15 @@ UE.registerUI('dialog',function(editor,uiName){
                             codeOutput += codeInput[i];
                         }
                     }
-                    var inserCode = "<pre><code class='language-javascript'>"+codeOutput+"</code></pre>";
+                    var inserCode = codeOutput;
+                    console.log("插入的内容：",inserCode);
+                    if(typeInput!="raw"){
+                        inserCode = "<pre class='language-"+typeInput+"'><code class='language-"+typeInput+"'>"+codeOutput+"</code></pre>";
+                    }
+
+                    var rawCode = codeOutput;
                     console.log(inserCode);
+
                     dialog.editor.execCommand('insertHtml', inserCode);
                     dialog.close(true);
                 }

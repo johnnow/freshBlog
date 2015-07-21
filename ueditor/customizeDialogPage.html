@@ -11,6 +11,12 @@
 </div>
 <textarea id="codeInput" style="width:95%;height:250px">
 </textarea>
+<select name="codeType" id="codeType">
+    <option value="javascript">javascript</option>
+    <option value="css">css</option>
+    <option value="html">html</option>
+    <option value="raw">raw</option>
+</select>
 <button onclick="getIm()">a</button>
 <!--页面中一定要引入internal.js为了能直接使用当前打开dialog的实例变量-->
 <!--internal.js默认是放到dialogs目录下的-->
@@ -26,6 +32,7 @@
     //alert('domUtils: '+domUtils);
     //alert('utils: '+utils);
     //alert('browser: '+browser);
+    dialog.typeInput = document.getElementById("codeType");
     dialog.codeInput = document.getElementById("codeInput");
     //var codeInput = document.getElementById("codeInput").innerHTML;
     //console.log(codeInput);

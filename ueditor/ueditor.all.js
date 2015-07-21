@@ -10221,6 +10221,7 @@ UE.commands['inserthtml'] = {
         }
         div.innerHTML = utils.trim( html );
 
+
         if ( !range.collapsed ) {
             var tmpNode = range.startContainer;
             if(domUtils.isFillChar(tmpNode)){

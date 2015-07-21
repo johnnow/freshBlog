@@ -15,6 +15,7 @@ var video = require('./routes/video');
 var list = require('./routes/list');
 var mock = require('./routes/mock');
 var body = require('./routes/body');
+var widget = require('./routes/widget');
 
 var app = express();
 
@@ -60,6 +61,7 @@ app.use('/video', video);
 app.use('/mock', mock);
 app.use('/list', list);
 app.use('/body', body);
+app.use('/widget', widget);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
